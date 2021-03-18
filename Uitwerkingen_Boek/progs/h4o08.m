@@ -1,0 +1,27 @@
+ts = 0.1;
+z = tf('z',ts);
+sys = (z^2-z-2)/(z^2-1.3*z+0.4);
+pzmap(sys);
+title('Opgave 4.8 A');
+%generate pdf file for use in LaTeX
+file = '../figs/opg4_8a.pdf';
+print('-dpdf', file);
+system(sprintf('pdfcrop %s %s', file, file));
+sys = (z^2-z+1)/(z^2+1);
+pzmap(sys);
+title('Opgave 4.8 B');
+file = '../figs/opg4_8b.pdf';
+print('-dpdf', file);
+system(sprintf('pdfcrop %s %s', file, file));
+sys = (z^3-z^2+z-1)/(z^2-0.25);
+pzmap(sys);
+title('Opgave 4.8 C');
+file = '../figs/opg4_8c.pdf';
+print('-dpdf', file);
+system(sprintf('pdfcrop %s %s', file, file));
+sys = (z^9-1)/((z-1)*z^8);
+pzmap(sys);
+title('Opgave 4.8 D');
+file = '../figs/opg4_8d.pdf';
+print('-dpdf', file);
+system(sprintf('pdfcrop %s %s', file, file));
