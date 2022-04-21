@@ -14,7 +14,7 @@
 #include <ti/devices/cc32xx/driverlib/i2s.h>
 #include <ti/drivers/I2C.h>
 
-#include "Board.h"
+#include "ti_drivers_config.h"
 #include "config.h"
 
 // You can select the sample rate here
@@ -33,12 +33,12 @@ int main(void)
     printf("1 kHz sine wave ==> Left HP LINE OUT.\n");
 
     // Configure an I2C connection which is used to configure the audio codec.
-    I2C_Handle i2cHandle = ConfigureI2C(Board_I2C0, I2C_400kHz);
+    I2C_Handle i2cHandle = ConfigureI2C(CONFIG_I2C_0, I2C_400kHz);
     // Configure the audio codec.
     ConfigureAudioCodec(i2cHandle, SAMPLINGFREQUENCY);
 
     // Configure an I2S connection which is use to send/receive samples to/from the codec.
-    ConfigureI2S(PRCM_I2S, I2S_BASE, SAMPLINGFREQUENCY);
+    ConfigureI2S(CONFIG_I2S_0, I2S_BASE, SAMPLINGFREQUENCY);
 
     /* Pre-generated sine wave data, 16-bit signed fixed point samples Q0.15 */
     int16_t sinetable[48] = {
@@ -74,3 +74,4 @@ int main(void)
 
     return 0;
 }
+
