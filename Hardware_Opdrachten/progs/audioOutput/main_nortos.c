@@ -31,6 +31,7 @@ int main(void)
     NoRTOS_start();
 
     printf("1 kHz sine wave ==> Left HP LINE OUT.\n");
+    printf("1 kHz sawtooth low to high wave ==> Right HP LINE OUT.\n");
 
     // Configure an I2C connection which is used to configure the audio codec.
     I2C_Handle i2cHandle = ConfigureI2C(CONFIG_I2C_0, I2C_400kHz);
